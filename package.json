@@ -1,0 +1,17 @@
+{
+  "name": "manga-community-master",
+  "version": "1.0",
+  "description": "Bot de Manga Community",
+  "main": "index.js",
+  "dependencies": {
+    "dependencies": "^0.0.1",
+    "discord.js": "^11.4.2",
+    "ytdl-core": "^0.20.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "!help"
+  },
+  "author": "Leo",
+  "license": "ISC"
+}
