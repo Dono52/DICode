@@ -248,4 +248,4 @@ bot.on("message", async function(message) {
             message.delete();
     }
 });
-bot.login(process.env.TOKEN);
+bot.login(process.env.BOT_TOKEN);
