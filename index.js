@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-const PREFIX = "*";
+const PREFIX = "di";
 const queue = new Map();
 const EVERYONE = "@";
 
