@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-const PREFIX = "di";
+const PREFIX = "*";
 const queue = new Map();
 const EVERYONE = "@";
 
@@ -24,13 +24,13 @@ function play(connection, message) {
 }
 
 bot.on("ready", function() {
-    bot.user.setGame("Manga Community | *aide | By Leo");
-    console.log("Le Bot Manga Community est connecté")
+    bot.user.setGame("Evoria-Life | *aide | By DaVid");
+    console.log("Le Bot Lolox est connecté")
 });
 
 bot.on("guildMemberAdd", function(member) {
-    let role = member.guild.roles.find("name", "everyone");
-    member.guild.channels.find("name", "⌚bienvenue").sendMessage(member.toString() + " Bienvenue sur Manga Community France | Discord Communautaire | By Leo & Luca, installe toi tranquillement ! :wink: :wink:  ");
+    let role = member.guild.roles.find("name", "Viewers");
+    member.guild.channels.find("name", "général").sendMessage(member.toString() + " Bienvenue sur Evoria-Life, installe toi tranquillement ! :wink: :wink:  ");
     member.addRole(role);
 });
 
@@ -67,11 +67,14 @@ bot.on("message", async function(message) {
                 .addField("*membres", "Permet de savoir le nombre de personnes sur le Discord")
                 .addField("*google", "Faite cette commande + (la recherche que vous souhaitez faire) !")
                 .addField("*youtube", "Faite cette commande + (la recherche que vous souhaitez faire)")
-                .addField("*discord", "Invitation permanente du discord")
-                .addField("*forum", "Adrèsse du Forum")
-                .addField("*serveur", " Etat du serveur discord")
+                .addField("*twitch", "Pour avoir la chaine Twitch de Lolox !")
+                .addField("*ts", "Ip du TeamSpeak3")
+                .addField("*collection", "Pour avoir la collection !")
+                .addField("*tuto", "Tuto Evoria")
+                .addField("*fofo", "Forum")
+                .addField("*serveur", " Serveur Arma3")
                 .setColor("#00a1ff")
-                .setAuthor("Aide de Manga Community | Bot")
+                .setAuthor("Aide de Evoria | Bot")
                 .setDescription("Voici les commandes")
                 .setTimestamp()
                 message.delete()
@@ -79,7 +82,7 @@ bot.on("message", async function(message) {
             break;
       
         case "ping":
-        message.channel.sendMessage("J'ai actuellement `" + bot.ping + " ms !`");
+        message.channel.sendMessage("Pong! J'ai actuellement `" + bot.ping + " ms !`");
         message.delete();
         break;
 
@@ -121,20 +124,35 @@ bot.on("message", async function(message) {
     message.reply('https://m.youtube.com/results?search_query=' + ytb.join('+'));
     message.delete();
     break;
-      
-     case "forum":
-     message.reply("Pas de forum disponible actuelement. Par la suite un forum arrivera. :ok_hand:");
+
+    case "tuto":
+     message.reply("Voilà la Chaine Youtube de Evoria: https://www.youtube.com/channel/UC_QFfWt3GnIv2CyixrtWw1g :ok_hand:");
      message.delete();
     break;
       
-      case "discord":
-     message.reply("Voilà l'Invitation permanente du discord : https://discord.gg/CtHFX9Q :ok_hand:");
+     case "fofo":
+     message.reply("Voilà le Forum de Evoria: http://176.190.225.113/ :ok_hand:");
+     message.delete();
+    break;
+      
+      case "ts":
+     message.reply("Voilà l'ip du TeamSpeak: 176.190.225.113 :ok_hand:");
+     message.delete();
+    break;
+
+    case "twitch":
+     message.reply("Voilà sa Chaine: https://www.twitch.tv/lolox_fr  Bon Live :wink: ");
+     message.delete();
+    break;
+
+    case "evoria":
+     message.reply("Voilà le discord: https://discord.gg/cSTeY7y  :ok_hand:");
      message.delete();
     break;
       
       case "serveur":
 
-     message.reply("Le serveur discord est en parfait état. Pas de maintenance prévue.");
+     message.reply("Serveur arrive dans quelque temps");
 
      message.delete();
 
@@ -142,6 +160,12 @@ bot.on("message", async function(message) {
       
       case "musique":
      message.reply("Voie avec l'administration !");
+     message.delete();
+    break;
+        
+      
+     case "collection":
+     message.reply("Collection arrive bientôt Bon Jeux :wink: ");
      message.delete();
     break;
      
@@ -248,4 +272,6 @@ bot.on("message", async function(message) {
             message.delete();
     }
 });
-bot.login(process.env.BOT_TOKEN);
+
+
+bot.login(process.env.TOKEN);
